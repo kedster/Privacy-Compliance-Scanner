@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Compliance Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="floating-particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Privacy Guardian</h1>
+            <p class="subtitle">Professional Data Privacy Compliance Scanner</p>
+        </div>
+
+        <div class="scanner-container">
+            <div class="input-group">
+                <input type="url" class="url-input" id="urlInput" placeholder="Enter website URL (e.g., https://example.com)">
+                <button class="scan-btn" id="scanBtn">
+                    <span>Scan Website</span>
+                </button>
+            </div>
+
+            <div class="compliance-filters">
+                <button class="filter-btn active" data-filter="all">All Regulations</button>
+                <button class="filter-btn" data-filter="gdpr">GDPR</button>
+                <button class="filter-btn" data-filter="ccpa">CCPA</button>
+                <button class="filter-btn" data-filter="coppa">COPPA</button>
+                <button class="filter-btn" data-filter="pipeda">PIPEDA</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+            <p>Scanning website for privacy compliance violations...</p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="score-card" id="scoreCard">
+                <div class="score-number" id="scoreNumber">--</div>
+                <div class="score-label" id="scoreLabel">Privacy Score</div>
+                <div id="scoreDescription"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="criticalCount">0</div>
+                    <div class="stat-label">Critical Issues</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="warningCount">0</div>
+                    <div class="stat-label">Warnings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cookiesCount">0</div>
+                    <div class="stat-label">Tracking Cookies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="scriptsCount">0</div>
+                    <div class="stat-label">Third-party Scripts</div>
+                </div>
+            </div>
+
+            <div class="violations-grid" id="violationsGrid"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
