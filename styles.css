@@ -128,15 +128,17 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            min-width: 150px;
         }
 
-        .scan-btn:hover {
+        .scan-btn:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4);
         }
 
-        .scan-btn:active {
-            transform: translateY(0);
+        .scan-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .scan-btn::before {
@@ -150,7 +152,7 @@
             transition: left 0.5s;
         }
 
-        .scan-btn:hover::before {
+        .scan-btn:hover:not(:disabled)::before {
             left: 100%;
         }
 
@@ -207,6 +209,29 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .scan-status {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         .results {
@@ -267,6 +292,7 @@
         .violation-critical { border-left-color: #ff4444; }
         .violation-warning { border-left-color: #ffaa00; }
         .violation-info { border-left-color: #4488ff; }
+        .violation-success { border-left-color: #00ff88; }
 
         .violation-title {
             font-size: 1.1rem;
@@ -330,6 +356,20 @@
         .stat-label {
             color: #aaaaaa;
             font-size: 0.9rem;
+        }
+
+        .error-message {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #ff6b6b;
+            display: none;
+        }
+
+        .error-message.active {
+            display: block;
         }
 
         .floating-particles {

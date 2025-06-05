@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Compliance Scanner</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">   
 </head>
 <body>
     <div class="cyber-grid"></div>
@@ -20,7 +20,7 @@
             <div class="input-group">
                 <input type="url" class="url-input" id="urlInput" placeholder="Enter website URL (e.g., https://example.com)">
                 <button class="scan-btn" id="scanBtn">
-                    <span>Scan Website</span>
+                    <span id="scanBtnText">Scan Website</span>
                 </button>
             </div>
 
@@ -31,11 +31,16 @@
                 <button class="filter-btn" data-filter="coppa">COPPA</button>
                 <button class="filter-btn" data-filter="pipeda">PIPEDA</button>
             </div>
+
+            <div class="error-message" id="errorMessage"></div>
         </div>
 
         <div class="loading" id="loading">
             <div class="loader"></div>
-            <p>Scanning website for privacy compliance violations...</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="scan-status" id="scanStatus">Initializing scan...</div>
         </div>
 
         <div class="results" id="results">
@@ -56,11 +61,11 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="cookiesCount">0</div>
-                    <div class="stat-label">Tracking Cookies</div>
+                    <div class="stat-label">Cookies Found</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="scriptsCount">0</div>
-                    <div class="stat-label">Third-party Scripts</div>
+                    <div class="stat-label">External Scripts</div>
                 </div>
             </div>
 
