@@ -248,25 +248,84 @@
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
-            border: 2px solid;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
         }
 
-        .score-excellent { border-color: #00ff88; }
-        .score-good { border-color: #88ff00; }
-        .score-warning { border-color: #ffaa00; }
-        .score-critical { border-color: #ff4444; }
+        .score-excellent { 
+            border-color: #00ff88 !important; 
+            background: rgba(0, 255, 136, 0.1) !important;
+        }
+        .score-good { 
+            border-color: #88ff00 !important; 
+            background: rgba(136, 255, 0, 0.1) !important;
+        }
+        .score-warning { 
+            border-color: #ffaa00 !important; 
+            background: rgba(255, 170, 0, 0.1) !important;
+        }
+        .score-critical { 
+            border-color: #ff4444 !important; 
+            background: rgba(255, 68, 68, 0.1) !important;
+        }
 
         .score-number {
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            transition: all 0.5s ease;
         }
+
+        .score-excellent .score-number { color: #00ff88; }
+        .score-good .score-number { color: #88ff00; }
+        .score-warning .score-number { color: #ffaa00; }
+        .score-critical .score-number { color: #ff4444; }
 
         .score-label {
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 1rem;
+            transition: all 0.5s ease;
+        }
+
+        .score-description {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-label {
+            color: #aaaaaa;
+            font-size: 0.9rem;
         }
 
         .violations-grid {
@@ -282,6 +341,19 @@
             padding: 1.5rem;
             border-left: 5px solid;
             transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 0.5s ease forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .violation-card:hover {
@@ -289,10 +361,22 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .violation-critical { border-left-color: #ff4444; }
-        .violation-warning { border-left-color: #ffaa00; }
-        .violation-info { border-left-color: #4488ff; }
-        .violation-success { border-left-color: #00ff88; }
+        .violation-critical { 
+            border-left-color: #ff4444;
+            background: rgba(255, 68, 68, 0.05);
+        }
+        .violation-warning { 
+            border-left-color: #ffaa00;
+            background: rgba(255, 170, 0, 0.05);
+        }
+        .violation-info { 
+            border-left-color: #4488ff;
+            background: rgba(68, 136, 255, 0.05);
+        }
+        .violation-success { 
+            border-left-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+        }
 
         .violation-title {
             font-size: 1.1rem;
@@ -330,32 +414,6 @@
             color: #00ff88;
             font-weight: 600;
             margin-bottom: 0.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #aaaaaa;
-            font-size: 0.9rem;
         }
 
         .error-message {
